@@ -25,10 +25,23 @@ Cookie-Clicker
     |---urls.py
 ```
 ### Frontend Design
-The Frontend uses the MVC pattern to respond to user events and reflect updates between the user interface and data model. Elements within the view that require interaction to the data model are the following: the cookie image, the high score text, the current score text, name form, and submit button. Data in the data model is the current score, the saved high score, and the high scorer name. 
+The Frontend uses the MVC pattern to respond to user events and reflect updates between the user interface and saved client data. The following are items that require communication between the `View.js` and `Model.js` via the `Controller.js`: the high score, name of the high scorer, the background of high score, the cookie, the current score, the name input, and the upload button. The `View.js`,`Model.js`, and `Controller.js` all have specfic actions being the 
+- `View` saves the references to HTML elements and access to element's data,
+- `Model` saves the downloaded high score and high scorer name from the server, manages the current score saved, and responsible of providing methods for downloading and uploading new high scores to the sever,
+- `Controller` facilitates updating of values between the `View` and `Model` by creating handlers for `View` events and binding handlers to functions that update the `Model`.
 ### Backend Design 
-The Backend uses Django and Django REST Framework to create a GET and POST API. The GET API `retrieve_api/download_score/` is used to download the latest high score saved from the database. The POST API `retrieve_api/upload_score/` is used to upload the newest high score once the data model has confirmed a new high score. 
+The Backend uses Django and Django REST Framework to create a GET API and POST API. Both GET API and POST API are used to communicate the following JSON data.
+```
+{
+    "username":"(\s)",
+    "score":"(\d)"
+}
+```
+
+Both APIs save a new `Player` record (once a new high score is identified) to Django's built-in MySQL database. 
+- The GET API `retrieve_api/download_score/` is used to download the latest high score and high scorer name saved from the database. 
+- The POST API `retrieve_api/upload_score/` is used to upload the newest high score and high scorer name once the data model has confirmed a new high score. 
 ## Additional Notes
-- **NOTE 1:** This application was only tested on Safari and may not work correctly on non-webkit based browsers.
-- **NOTE 2:** It is recommended to use a web server to test the frontend application. 
-- **NOTE 3:** Originally, this application was supposed to be a itinerary application that displayed tickets from a database hence the project files are called `ticketr`.
+1. This application was only tested on Safari and may not work correctly on non-webkit based browsers.
+2. It is recommended to use a web server to test the frontend application. 
+3. Originally, this application was supposed to be a itinerary application that displayed tickets from a database hence the project files are called `ticketr`.
