@@ -7,7 +7,7 @@ The purpose of the Cookie Clicker is to demonstrate use of backend frameworks, d
 * CSS (Frontend)
 * JavaScript (Frontend)
 ### Project Structure
-The project structure adheres to the default Django project structure; only relevant will be denoted.
+The project structure adheres to the default Django project structure; only relevant files will be denoted.
 ```
 Cookie-Clicker
 |---frontend
