@@ -1,56 +1,29 @@
 class View {
 
     constructor() {
+
+      this.app_window = window;
   
-      this.app = this.getElement('#root')
+      this.high_score = document.getElementById('high_score')
+      this.high_score.textContent = '0'
+
+      this.score_background = document.getElementsByClassName('score_text')[0]
+
+      this.high_scorer_name = document.getElementById('high_scorer_name')
+      this.high_scorer_name.textContent = 'loading...'
+
+      this.current_score = document.getElementById('current_score')
+      this.current_score.textContent = '0'
   
-      this.high_score = this.createElement('h1')
-      this.high_score.textContent = 'High Score: 0'
+      this.cookie = document.getElementById('cookie')
   
-      this.downloadButton = this.createElement('button', 'download_button')
-      this.downloadButton.textContent = 'Download High Score'
-  
-      this.cookie = this.getElement('img')
-  
-      this.score = this.createElement('h3')
-      this.score.textContent = 'Your Score: 0'
-  
-      this.form = this.createElement('form')
-  
-      this.uploadButton = this.createElement('button', 'upload_button')
+      this.form = document.querySelector('form')
+
+      this.uploadButton = document.querySelector('button')
       this.uploadButton.textContent = 'Upload High Score'
   
-      this.input = this.createElement('input')
-      this.input.type = 'text'
-      this.input.placeholder = 'Cookie God'
-      this.input.name = 'name'
+      this.input = document.querySelector('input')
   
-      this.form.append(this.input, this.uploadButton)
-  
-      this.app.append(this.high_score, this.downloadButton, this.score, this.form)
-  
-  
-    }
-  
-    createElement(tag, className) {
-  
-      const element = document.createElement(tag)
-  
-      if (className) {
-  
-        element.classList.add(className)
-  
-      }
-  
-      return element
-      
-    }
-  
-    getElement(selector) {
-  
-      const element = document.querySelector(selector)
-  
-      return element
   
     }
   
@@ -76,24 +49,26 @@ class View {
   
     }
   
-    bindDataDownload(handler) {
+    bindNameUpload(handler) {
   
-      this.downloadButton.addEventListener("click", event => {
+      this.form.addEventListener("submit", event => {
+
         event.preventDefault()
-        handler()
+        handler(this.getName())
+        this.clearName()
         
       })
   
     }
-  
-    bindNameUpload(handler) {
-  
-      this.form.addEventListener("submit", event => {
-        event.preventDefault()
-        handler(this.getName())
-        this.clearName()
+
+    bindWindowLoad(handler) {
+
+      this.app_window.addEventListener("load", event => {
+
+        handler()
+
       })
-  
+
     }
   
   }

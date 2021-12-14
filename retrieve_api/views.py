@@ -9,11 +9,10 @@ from .models import Player
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
-        'Get Passengers':'passenger-details/',
-        'Get Passenger Tickets':'passenger-tickets/<str:full_name>/tickets/',
-        'Get Passenger Tikcet':'passenger-tickets/<str:full_name>/<str:confirmation_number>',
-        'Check In Passenger Ticket':'passenger-tickets/<str:full_name>/<str:confirmation_number>/check-in/'
+        'Download Score':'download_score/',
+        'Upload Score':'upload_score/',
     }
+
     return Response(api_urls)
 
 
@@ -30,6 +29,7 @@ def download_score(request):
 def upload_score(request):
 
     serializer = PlayerSerializer(data=request.data)
+    
     if serializer.is_valid():
         serializer.save()
 

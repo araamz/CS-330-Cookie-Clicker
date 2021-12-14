@@ -4,7 +4,7 @@ class Model {
   
       this.score = 0
       this.high_score = 0
-      this.name = ""
+      this.high_scorer_name = ""
   
       this.url = "http://localhost:8000/retrieve_api"
       this.csrftoken = this.getCookie('csrftoken')
@@ -41,21 +41,21 @@ class Model {
   
     async download_high_score() {
   
-      await fetch(`${this.url}/download_score/`)
+      return await fetch(`${this.url}/download_score/`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+
         this.high_score = data.score
-        this.name = data.username
+        this.high_scorer_name = data.username
   
-      })
+      }).catch(response => console("Error - download_high_score(): ", response))
   
     }
   
     async upload_new_high_score(name, score) {
   
       this.high_score = score
-      this.name = name
+      this.high_scorer_name = name
   
       await fetch(`${this.url}/upload_score/`, {
   
@@ -66,17 +66,15 @@ class Model {
             'X-CSRFToken': this.csrftoken
   
         },
-  
         body: JSON.stringify(
   
           {
-            "username": this.name,
-            "score": this.score
-          }
+            "username": name,
+            "score": score
+          })
   
-        ),
   
-        })
+      })
       .then(response => response.json())
       .then(success => console.log('Success - upload_new_high_score(): ', success))
       .catch(error => console.error('Error - upload_new_high_score(): ', error))
@@ -88,19 +86,22 @@ class Model {
       this.score = this.score + 1
   
     }
+
     get_score() {
   
       return this.score
   
     }
+    
     get_high_score() {
   
       return this.high_score
   
     }
-    get_name() {
+
+    get_high_scorer_name() {
   
-      return this.name
+      return this.high_scorer_name
   
     }
   
