@@ -45,3 +45,4 @@ Both APIs save a new `Player` record (once a new high score is identified) to Dj
 1. This application was only tested on Safari and may not work correctly on non-webkit based browsers.
 2. It is recommended to use a web server to test the frontend application. 
 3. Originally, this application was supposed to be a itinerary application that displayed tickets from a database hence the project files are called `ticketr`.
+4. This application is meant to be part of a fairly small-scale project meaning there are use cases that will result in broken functionality. This is a **rapid prototype**. 
