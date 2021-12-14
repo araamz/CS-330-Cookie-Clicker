@@ -1,12 +1,29 @@
 # CS-330-Cookie-Clicker
 ## Purpose
-The purpose of the Cookie Clicker is to demonstrate use of backend software, database integration, and use of CRUD mythology for MVC based frontend applications. The following frameworks and tools were used to create the applicaiton:
+The purpose of the Cookie Clicker is to demonstrate use of backend frameworks, database integration, and use of CRUD mythology for a MVC based frontend application. The following frameworks and tools were used to create the applicaiton:
 * Django (Backend Framework)
 * Django REST Framework (Backend Framework - CRUD APIs)
 * HTML (Frontend)
 * CSS (Frontend)
 * JavaScript (Frontend)
 ### Project Structure
+The project structure adheres to the default Django project structure; only relevant will be denoted.
+```
+Cookie-Clicker
+|---frontend
+    |---Controller.js
+    |---Model.js
+    |---View.js
+    |---index.html
+    |---cookie.png
+|---retrieve_api
+    |---urls.py
+    |---models.py
+    |---serializers.py
+    |---views.py
+|---ticketr
+    |---urls.py
+```
 ### Frontend Design
 The Frontend uses the MVC pattern to respond to user events and reflect updates between the user interface and data model. Elements within the view that require interaction to the data model are the following: the cookie image, the high score text, the current score text, name form, and submit button. Data in the data model is the current score, the saved high score, and the high scorer name. 
 ### Backend Design 
