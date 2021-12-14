@@ -1,4 +1,9 @@
 # CS-330-Cookie-Clicker
+
+<p align="center">
+    <img src="Cookie-Clicker.gif" width="300">
+</p>
+
 ## Purpose
 The purpose of the Cookie Clicker is to demonstrate use of backend frameworks, database integration, and use of CRUD mythology for a MVC based frontend application. The following frameworks and tools were used to create the applicaiton:
 * Django (Backend Framework)
