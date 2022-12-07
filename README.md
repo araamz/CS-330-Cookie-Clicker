@@ -4,10 +4,20 @@
     <img src="Cookie-Clicker.gif" width="300">
 </p>
 
+## Installation and Setup
+1. Create a new virtual python environment using `python3 -m venv env`. Execute this command in the main directory of the project.
+2. Access the virtual python environment using `source env/bin/activate`. Execute this command in the main directory of the project.
+3. Begin to install the necessary packages into the virtual environment. 
+4. Create the backend sqlite database using `python3 manage.py migrate`.
+5. Run the backend server using `python3 manage.py runserver`.
+6. Run the frontend application by double-clicking `index.html`.
+7. Enjoy clicking the Cookie!
+
 ## Purpose
 The purpose of the Cookie Clicker is to demonstrate use of backend frameworks, database integration, and use of CRUD mythology for a MVC based frontend application. The following frameworks and tools were used to create the applicaiton:
 * Django (Backend Framework)
 * Django REST Framework (Backend Framework - CRUD APIs)
+* Django CORS Headers
 * HTML (Frontend)
 * CSS (Frontend)
 * JavaScript (Frontend)
